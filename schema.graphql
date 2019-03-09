@@ -1,13 +1,74 @@
-type Program @model @auth(rules: [{allow: owner}]) {
+type User @model @auth(rules: [{allow: owner}]) {
   id: ID!
+  programs: [Program!]!
+  createdAt: String!
+  acountState: ACCOUNT_STATE!
+  lastWorkoutTime: String
+  onRepMax: ORM
   name: String
-  owner: String
-  file: S3Object
-  createdAt: String
+  phoneNumber: Int
+  sex: SEX
+  age: Int
+  trainingExperience: EXPERIENCE
+  trainingGoal: GOAL
+  trainingFrequency: Int # sessions per week
 }
 
-type S3Object {
-  bucket: String!
-  region: String!
-  key: String!
+type Program @model {
+  id: ID!
+  createdAt: String!
+  Weeks: [Week!]!
 }
+
+type Week @model {
+  id: ID!
+  order: Int!
+  workouts: [Workout!]!
+}
+
+type Workout @model {
+  id: ID!
+  order: Int!
+  exercises: [Exercise!]!
+}
+
+type Exercise @model {
+  id: ID!
+  order: Int!
+  reps: Int!
+  sets: Int!
+  repRange: String!
+  weight: Int!
+  restInterval: Int! # in seconds
+  suggested: Boolean!
+}
+
+enum ACCOUNT_STATE {
+  FREE
+  PAID
+}
+
+enum SEX {
+  MALE
+  FEMALE
+}
+
+enum GOAL {
+  STRENGTH
+  SIZE
+  GENERAL_HEALTH
+  WEIGHT_LOSS
+}
+
+enum EXPERIENCE {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+}
+
+type ORM {
+  bench: Int
+  squat: Int
+  deadlift: Int
+}
+

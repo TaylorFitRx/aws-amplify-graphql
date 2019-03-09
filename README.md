@@ -96,3 +96,6 @@ The sample uses [AWS Amplify](https://github.com/aws/aws-amplify) to perform the
 
 If the application runs successfully you should be able to enter the name of a photo, choose a file and then press **Add photo**. This will make a GraphQL call to enter the record into the database and simultaneously upload the object to S3. An immediate fetch of the record will then be at the bottom of the screen.
 
+To update the graphql schema, you have to copy the schema.graphql file into
+amplify/backend/api/fitrx/schema and run amplify push
+
