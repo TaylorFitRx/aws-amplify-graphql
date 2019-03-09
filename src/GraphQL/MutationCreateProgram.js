@@ -1,11 +1,10 @@
 import gql from 'graphql-tag';
 
 export default gql`
-mutation ($input: CreatePictureInput!) {
-  createPicture(input: $input) {
+mutation ($input: CreateProgramInput!) {
+  createProgram(input: $input) {
     id
     name
-    visibility
     owner
     createdAt
     file {

@@ -1,2 +1,2 @@
-export { default as QueryListPictures } from "./QueryListPictures";
-export { default as MutationCreatePicture } from "./MutationCreatePicture";
+export { default as QueryListPrograms } from "./QueryListPrograms";
+export { default as MutationCreateProgram } from "./MutationCreateProgram";

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { graphql } from 'react-apollo';
-import { QueryListPictures } from "../GraphQL";
+import { QueryListPrograms } from "../GraphQL";
 
 import { Icon, Table, Button, Loader } from 'semantic-ui-react'
 
@@ -8,7 +8,7 @@ import { Storage } from 'aws-amplify';
 
 class AllPhotos extends Component {
 
-    async handleDownload({ visibility: level, file }) {
+    async handleDownload({ level = 'private', file }) {
         try {
             const { bucket, region, key } = file;
             const [, , keyWithoutPrefix] = /([^/]+\/){2}(.*)$/.exec(key) || key;
@@ -57,12 +57,12 @@ class AllPhotos extends Component {
 }
 
 export default graphql(
-    QueryListPictures,
+    QueryListPrograms,
     {
         options: {
             fetchPolicy: 'cache-and-network',
         },
-        props: ({ data: { listPictures: photos } }) => ({
+        props: ({ data: { listPrograms: photos } }) => ({
             photos,
         })
     }

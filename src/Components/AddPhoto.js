@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { graphql } from 'react-apollo';
-import { MutationCreatePicture, QueryListPictures } from "../GraphQL";
+import { MutationCreateProgram, QueryListPrograms } from "../GraphQL";
 import { v4 as uuid } from 'uuid';
 
 import { Form, Icon } from 'semantic-ui-react'
@@ -62,7 +62,7 @@ class AddPhoto extends Component {
 
         this.setState(this.getInitialState(), () => {
             this.fileInput.value = "";
-            this.props.createPicture({ name, owner, visibility, file });
+            this.props.createProgram({ name, owner, file });
         });
     }
 
@@ -83,28 +83,28 @@ class AddPhoto extends Component {
 }
 
 export default graphql(
-    MutationCreatePicture,
+    MutationCreateProgram,
     {
         options: {
-            update: (proxy, { data: { createPicture } }) => {
-                const query = QueryListPictures;
+            update: (proxy, { data: { createProgram } }) => {
+                const query = QueryListPrograms;
                 const data = proxy.readQuery({ query });
-                data.listPictures.items = [
-                    ...data.listPictures.items.filter((photo) => photo.id !== createPicture.id),
-                    createPicture
+                data.listPrograms.items = [
+                    ...data.listPrograms.items.filter((photo) => photo.id !== createProgram.id),
+                    createProgram
                 ];
                 proxy.writeQuery({ query, data });
             }
         },
         props: ({ ownProps, mutate }) => ({
-            createPicture: photo => mutate({
+            createProgram: photo => mutate({
                 variables: { input: photo },
                 optimisticResponse: () => ({
-                    createPicture: {
+                    createProgram: {
                         ...photo,
                         id: uuid(),
                         createdAt: new Date().toISOString(),
-                        __typename: 'Picture',
+                        __typename: 'Program',
                         file: { ...photo.file, __typename: 'S3Object' }
                     }
                 }),
