@@ -1,0 +1,72 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "fitrx-20190309120252-authRole",
+			"UnauthRoleArn": "arn:aws:iam::617813622114:role/fitrx-20190309120252-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::617813622114:role/fitrx-20190309120252-authRole",
+			"Region": "us-east-1",
+			"DeploymentBucketName": "fitrx-20190309120252-deployment",
+			"UnauthRoleName": "fitrx-20190309120252-unauthRole",
+			"StackName": "fitrx-20190309120252",
+			"StackId": "arn:aws:cloudformation:us-east-1:617813622114:stack/fitrx-20190309120252/53617110-42a6-11e9-86c2-0a52d71b881a"
+		}
+	},
+	"auth": {
+		"cognito5475717f": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/fitrx-20190309120252-deployment/amplify-cfn-templates/auth/cognito5475717f-cloudformation-template.yml",
+				"logicalId": "authcognito5475717f"
+			},
+			"lastPushTimeStamp": "2019-03-09T21:29:29.882Z",
+			"output": {
+				"AppClientSecret": "51vr2rfgmm3pijb23ija6sufj202dcugje59c8rst5d97bv1u87",
+				"UserPoolId": "us-east-1_z4ZlvI0cP",
+				"AppClientIDWeb": "73mivb03lsuep5h60vjn9da7ho",
+				"AppClientID": "25jo4mgu6fk00237qdpv1s0903",
+				"IdentityPoolId": "us-east-1:a41276ab-f853-4d47-a878-41611b425438",
+				"IdentityPoolName": "cognito5475717f_identitypool_5475717f__dev",
+				"UserPoolName": "cognito5475717f_userpool_5475717f"
+			},
+			"lastPushDirHash": "P6vHdDGToESwr8k27KRjdg9+aIE="
+		}
+	},
+	"storage": {
+		"fitrx": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/fitrx-20190309120252-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
+				"logicalId": "storagefitrx"
+			},
+			"lastPushTimeStamp": "2019-03-09T21:29:29.886Z",
+			"output": {
+				"BucketName": "fitrx-user-content-dev-dev",
+				"Region": "us-east-1"
+			},
+			"lastPushDirHash": "8Z+gxmq1qpMQjYg91H7YMK0tx94="
+		}
+	},
+	"api": {
+		"fitrx": {
+			"service": "AppSync",
+			"providerPlugin": "awscloudformation",
+			"output": {
+				"securityType": "API_KEY",
+				"GraphQLAPIIdOutput": "lmnz6pz2obgk3hvxwpx6zrf4qm",
+				"GraphQLAPIEndpointOutput": "https://wvzj2lbbufd3xhm53skuhl7cem.appsync-api.us-east-1.amazonaws.com/graphql",
+				"GraphQLAPIKeyOutput": "da2-ss7artlozjbp3j4zaynw7udxsq",
+				"AuthCognitoUserPoolIdOutput": "us-east-1_z4ZlvI0cP",
+				"AuthCognitoUserPoolNativeClientId": "See UserPool: us-east-1_z4ZlvI0cP",
+				"AuthCognitoUserPoolJSClientId": "See UserPool: us-east-1_z4ZlvI0cP"
+			},
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/fitrx-20190309120252-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+				"logicalId": "apifitrx"
+			},
+			"lastPushTimeStamp": "2019-03-09T21:29:29.893Z",
+			"lastPushDirHash": "vhxezg+74l9bDJYGzq9iNbmrfrQ="
+		}
+	}
+}

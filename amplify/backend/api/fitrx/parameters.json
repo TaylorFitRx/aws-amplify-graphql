@@ -1,0 +1,10 @@
+{
+    "AppSyncApiName": "fitrx",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authcognito5475717f",
+            "Outputs.UserPoolId"
+        ]
+    }
+}

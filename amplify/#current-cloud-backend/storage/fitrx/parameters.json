@@ -1,0 +1,13 @@
+{
+    "bucketName": "fitrx-user-content-dev",
+    "authPolicyName": "s3_amplify_a13d5797",
+    "unauthPolicyName": "s3_amplify_a13d5797",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authPermissions": "rw",
+    "unauthPermissions": ""
+}
